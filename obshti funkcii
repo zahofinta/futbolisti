@@ -1,0 +1,14 @@
+string read_from_file(char* filename){
+    ifstream reader;
+    reader.open(filename, ios::in);
+    string buffer;
+    stringstream builder;
+    while(!reader.eof()){
+        getline(reader, buffer);
+        builder<<buffer<<"\n";
+    }
+    builder<<"\0";
+    string result = builder.str();
+    reader.close();
+    return result;
+}
