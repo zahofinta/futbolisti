@@ -1,0 +1,27 @@
+#include "includove.cpp"
+#include "class chowek.cpp"
+#include "class futbolist.cpp"
+#include "chetene na futbolisit.cpp"
+
+
+int main ()
+{
+FootballPlayer **fp=new FootballPlayer*[3];
+fp[0]=new FootballPlayer("Perko","Baltiqta","2324","JAPON",2345.6);
+fp[1]=new FootballPlayer("RENDETO","BJORNER","2434","PALESTINEC",3434524.52);
+fp[2]=new FootballPlayer("Perez","DZINDZIKASHTOV","2342","IRANEC",2313.23);
+for (int i=0;i<3;i++)
+{
+    cout <<fp[i]->fp_info()<<endl;
+}
+cout <<read_from_file("fp.txt");
+for (int i=0;i<3;i++)
+{
+    delete fp[i];
+}
+delete[] fp;
+
+
+
+
+}
