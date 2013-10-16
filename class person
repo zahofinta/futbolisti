@@ -1,0 +1,88 @@
+class Person
+{
+protected:
+    char *m_first_name;
+    char *m_last_name;
+    char *m_id;
+    char *m_nationality;
+public:
+
+    Person(char *first_name,char *last_name,char *id,char *nationality)
+    :m_first_name(first_name),m_last_name(last_name),m_id(id),m_nationality(nationality)
+    {
+    }
+    Person(const Person &cPerson)
+    {
+        set_first_name(cPerson.m_first_name);
+        set_last_name(cPerson.m_last_name);
+        set_id(cPerson.m_id);
+        set_nationality(cPerson.m_nationality);
+    }
+    ~Person()
+    {
+        delete [] m_first_name;
+        delete [] m_last_name;
+        delete [] m_id;
+        delete [] m_nationality;
+    }
+
+
+
+    void set_first_name(char *first_name)
+    {
+        if(first_name!=NULL)
+        {
+            this->m_first_name=new char[strlen(first_name)+1];
+            strcpy(this->m_first_name,first_name);
+            strcat(this->m_first_name,"\0");
+        }
+    }
+    void set_last_name(char *last_name)
+    {
+        if(last_name!=NULL)
+        {
+            this->m_last_name=new char[strlen(last_name)+1];
+            strcpy(this->m_last_name,last_name);
+            strcat(this->m_last_name,"\0");
+        }
+
+    }
+    void set_id(char *id)
+    {
+        if(id!=NULL)
+        {
+            this->m_id=new char[strlen(id)+1];
+            strcpy(this->m_id,m_id);
+            strcat(this->m_id,"\0");
+        }
+
+    }
+    void set_nationality(char *nationality)
+    {
+        if(nationality!=NULL)
+        {
+            this->m_nationality=new char[strlen(nationality)+1];
+            strcpy(this->m_nationality,nationality);
+            strcat(this->m_nationality,"\0");
+        }
+    }
+    char *get_first_name()
+    {
+        return this->m_first_name;
+    }
+    char *get_last_name()
+    {
+        return this->m_last_name;
+    }
+    char *get_id()
+    {
+        return this->m_id;
+    }
+    char *get_nationality()
+    {
+        return this->m_nationality;
+    }
+
+};
+
+
